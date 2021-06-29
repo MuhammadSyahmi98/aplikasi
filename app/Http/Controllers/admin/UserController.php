@@ -47,6 +47,15 @@ class  UserController extends Controller
     public function show($id)
     {
         //
+        $user = [
+            'name' => 'Syahmi',
+            'email' => 'syahmi@gmail.com',
+            'course' => 'Laravel 101' 
+        ];
+
+        // dot below same as slash
+        // List file is in folder admin
+        return view('admin.user', ['user'=>$user]);
     }
 
     /**

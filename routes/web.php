@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\admin\UserController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\JadualController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,7 @@ use App\Http\Controllers\JadualController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 
 // Redirect
@@ -57,3 +58,5 @@ Route::get('/kelass{ name?                                                      
 
 
 Route::get('/jadual/{subject}', [JadualController::class, 'index']);
+
+Route:: resource('user', UserController::class);

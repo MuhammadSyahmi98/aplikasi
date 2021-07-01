@@ -24,9 +24,9 @@ class BookFactory extends Factory
         return [
             'title' => $this->faker->sentence(),
             'synopsis' => $this->faker->paragraph(2, true),
-            'price'=>$this->faker->randomFloat(2, 10,300),
-            'created_at'=> date('Y-m-d H:i:s'),
-            'updated_at'=> date('Y-m-d H:i:s')
+            'price' => $this->faker->randomFloat(2, 10,300),
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
 
 
         ];

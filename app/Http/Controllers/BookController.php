@@ -9,9 +9,12 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
-    //
+    //with is can inner join or other join
+    // To reduce the queries
     public function index() {
-        $books = Book::select('id', 'title','price', 'author_id')->paginate(10);
+        $books = Book::select('id', 'title','price', 'author_id')
+        ->with('author')
+        ->paginate(10);
         
         return view('books.listing', ['books' =>$books]);
 

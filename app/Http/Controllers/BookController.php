@@ -96,7 +96,12 @@ class BookController extends Controller
     }
 
     public function authors() {
-        $authors = Author::all();
+        // books is a function in model
+        // We use get because want to modify the statemnt 
+        $authors = Author::with('books')->get();
+
+        // all() is static we cant modify the data that we want
+        // $authors = Author::all();
         
         return view('books.authors', [
             'authors' => $authors

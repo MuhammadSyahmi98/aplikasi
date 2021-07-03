@@ -20,17 +20,18 @@
                 </tr>
                 <tr>
                     <td width="5%"></td>
-                    <td>
+                    <td><ol>
                         <!-- books refer to function in model -->
                   
                             @foreach($author->books as $book)
-                            {{$book->title}}<br>
+                            <li><a href="{{route('book-single', $book->id)}}">{{$book->title}}</a></li><br>
                             @endforeach
                      
 
                         @if($author->books->count() < 1 )
                             <em>Author dont have any books</em>
                         @endif
+                        </ol>
                     </td>
                 </tr>
                 @endforeach

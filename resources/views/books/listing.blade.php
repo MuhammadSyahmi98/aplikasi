@@ -32,7 +32,13 @@
 
                         <td><a href="{{ route('book-single', $book->id) }}">{{ $book->title }}</a></td>
                         <td>RM {{ $book->price }}</td>
-                        <td>{{ $book->author->name }}</td>
+                        <td>
+                            <ol>
+                                @foreach($book->authors as $author)
+                                 <li>{{$author->name}}</li>   
+                                @endforeach
+                            </ol>
+                        </td>
                         <td>
                             <a href="{{ route('book-edit', $book->id) }}" class="btn btn-sm btn-primary">EDIT</a>
                             <form class="d-inline" action="{{ route('book-destroy', $book->id) }}" method="POST"  onsubmit="return confirm('Are sure want to delete book titled {{ $book->title }}')">

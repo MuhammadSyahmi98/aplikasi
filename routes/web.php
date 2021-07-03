@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\admin\UserController;
-use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\admin\UserController;
 
 
 /*
@@ -81,3 +82,13 @@ Route::get('/kelass{ name?                                                      
 Route::get('/jadual/{subject}', [JadualController::class, 'index']);
 
 Route:: resource('user', UserController::class);
+
+
+Route::get('/test', [DashboardController::class, 'test']);
+
+
+// Email
+
+Route::get('/email/welcome', function(){
+    return new App\Mail\WelcomeEmail();
+});

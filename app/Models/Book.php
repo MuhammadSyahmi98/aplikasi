@@ -13,7 +13,7 @@ class Book extends Model
     protected $fillable = ['price', 'title', 'synopsis', 'author_id'];
 
     // Foreign key3
-    public function author() {
+    public function authors() {
         return $this->belongsToMany(Author::class);
     }
 }

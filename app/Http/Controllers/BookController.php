@@ -2,19 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\WelcomeEmail;
 use App\Models\Book;
 use App\Models\Author;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Mail;
 
 class BookController extends Controller
 {
     //with is can inner join or other join
     // To reduce the queries
     public function index() {
-        $books = Book::select('id', 'title','price', 'author_id')
-        ->with('author')
+        $books = Book::select('id', 'title','price')
+        ->with('authors')
         ->paginate(10);
+
+        $email_data = [
+            'code' => 'asdsda',
+            'name' => 'syahmi jalil'
+        ];
+
+        Mail::to('syahmijalil12@gmail.com')->send( new WelcomeEmail($email_data) );
         
         return view('books.listing', ['books' =>$books]);
 
@@ -25,9 +33,10 @@ class BookController extends Controller
         // $book = Book::all();
 
         // specific
-        $book = Book::find($id);
+        // Find can yuse at end of syntax
+        $book = Book::with('authors')->find($id);
 
-        return view('books.single', ['book' =>$book]);
+        return view('books.single', ['book' => $book]);
 
         // 
         // dd($book);

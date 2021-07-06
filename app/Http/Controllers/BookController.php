@@ -17,12 +17,12 @@ class BookController extends Controller
         ->with('authors')
         ->paginate(10);
 
-        $email_data = [
-            'code' => 'asdsda',
-            'name' => 'syahmi jalil'
-        ];
+        // $email_data = [
+        //     'code' => 'asdsda',
+        //     'name' => 'syahmi jalil'
+        // ];
 
-        Mail::to('syahmijalil12@gmail.com')->send( new WelcomeEmail($email_data) );
+        // Mail::to('syahmijalil12@gmail.com')->send( new WelcomeEmail($email_data) );
         
         return view('books.listing', ['books' =>$books]);
 

@@ -3,7 +3,7 @@
 
 @section('content')
 <h1>Login</h1>
-<form class="mt-5" action="{{ route('login-store') }}" method="POST">
+<form class="mt-5" action="{{ route('login') }}" method="POST">
     @csrf
 
     @if( session('error'))

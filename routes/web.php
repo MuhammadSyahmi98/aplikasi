@@ -4,9 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\admin\UserController;
-use App\Http\Controllers\auth\LoginController;
-use App\Http\Controllers\auth\LogoutController;
-use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,13 +28,6 @@ Route::get('/', function () {
  * Auhthetication
  */
 
-
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
-Route::POST('/register', [RegisterController::class, 'store'])->name('register-store');
-
-
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::POST('/login', [LoginController::class, 'store'])->name('login-store');
 
 
 
@@ -111,17 +101,17 @@ Route::get('/kelass{ name?                                                      
     
 });
 
+// Manual setup
+// Route::get('/jadual/{subject}', [JadualController::class, 'index']);
 
-Route::get('/jadual/{subject}', [JadualController::class, 'index']);
-
-Route:: resource('user', UserController::class);
+// Route:: resource('user', UserController::class);
 
 
-Route::get('/test', [DashboardController::class, 'test']);
+// Route::get('/test', [DashboardController::class, 'test']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
-Route::post('/logout', [LogoutController::class, 'index'])->name('logout');
+// Route::post('/logout', [LogoutController::class, 'index'])->name('logout');
 
 
 // Email

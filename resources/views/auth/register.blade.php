@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>Registration</h1>
-<form class="mt-5" action="{{ route('register-store') }}" method="POST">
+<form class="mt-5" action="{{ route('register') }}" method="POST">
     @csrf
 
     @if($errors->any())
